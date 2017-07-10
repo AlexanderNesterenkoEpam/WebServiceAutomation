@@ -1,0 +1,11 @@
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\TestWebProject.dll
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\TestWebProject.pdb
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.dll
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.xml
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\obj\Debug\TestWebProject.csprojResolveAssemblyReference.cache
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\obj\Debug\TestWebProject.dll
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\obj\Debug\TestWebProject.pdb
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.Support.dll
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.Support.xml
+c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\TestWebProject.dll.config
