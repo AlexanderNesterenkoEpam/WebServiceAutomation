@@ -28,6 +28,7 @@ namespace TestWebProject.webdriver
 			try
 			{
 				this.Element = Browser.GetDriver().FindElement(this.Locator);
+				//this.Element = FindElement(this.Locator);
 			}
 			catch (Exception)
 			{
@@ -45,7 +46,10 @@ namespace TestWebProject.webdriver
 
 		public IWebElement FindElement(By @by)
 		{
-			throw new System.NotImplementedException();
+			var element = Browser.GetDriver().FindElement(by);
+			
+			return element;
+
 		}
 
 		public ReadOnlyCollection<IWebElement> FindElements(By @by)
@@ -62,6 +66,8 @@ namespace TestWebProject.webdriver
 		public void SendKeys(string text)
 		{
 			this.WaitForIsVisible();
+			IJavaScriptExecutor executor = (IJavaScriptExecutor)Browser.GetDriver();
+			executor.ExecuteScript("arguments[0].style.backgroundColor = 'green'", this.GetElement());
 			Browser.GetDriver().FindElement(this.Locator).SendKeys(text);
 		}
 
@@ -73,6 +79,8 @@ namespace TestWebProject.webdriver
 		public void Click()
 		{
 			this.WaitForIsVisible();
+			IJavaScriptExecutor executor = (IJavaScriptExecutor)Browser.GetDriver();
+			executor.ExecuteScript("arguments[0].style.backgroundColor = 'red'", this.GetElement());
 			Browser.GetDriver().FindElement(this.Locator).Click();
 		}
 

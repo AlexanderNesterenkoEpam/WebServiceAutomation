@@ -17,7 +17,7 @@ namespace TestWebProject.webdriver
 		private Browser()
 		{
 			InitParamas();
-			_driver = BrowserFactory.GetDriver(CurrentBrowser, ImplWait);
+			_driver = BrowserFactory.GetDriver(CurrentBrowser, ImplWait);   
 		}
 
 		private static void InitParamas()

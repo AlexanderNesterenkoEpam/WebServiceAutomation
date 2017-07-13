@@ -1,6 +1,8 @@
-﻿using System.Threading;
+﻿using System;
+using System.Threading;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using TestWebProject.webdriver;
 
 namespace TestWebProject.forms
@@ -21,16 +23,27 @@ namespace TestWebProject.forms
 		[FindsBy(How = How.XPath, Using = ".//a[contains(@href, '#sent')]")]
 		private IWebElement SentMailLink;
 
+		[FindsBy(How = How.XPath, Using = ".//*[@gh='tm']//*[@act='20' and @role='button']")]
+		private IWebElement Refresh;
+
 		public DraftsPage NavigateToDrafts()
 		{
 			DraftsLink.Click();
-			//Thread.Sleep(2000);
+			Thread.Sleep(3000);
 			return new DraftsPage();
 		}
+
+		public void WaitForDraftsListAppeared()
+		{
+			new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(3)).Until(
+				ExpectedConditions.ElementIsVisible(By.XPath(".//*[@class='AO']//*[@role ='main']")));
+		}
+
 
 		public SentMailPage NavigateToSentMail()
 		{
 			SentMailLink.Click();
+
 			return new SentMailPage();
 		}
 

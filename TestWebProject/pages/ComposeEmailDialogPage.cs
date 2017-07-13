@@ -1,8 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Threading;
 using OpenQA.Selenium;
+using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
 using TestWebProject.webdriver;
 
 namespace TestWebProject.forms
@@ -33,6 +33,9 @@ namespace TestWebProject.forms
 
 		[FindsBy(How = How.XPath, Using = ".//*[contains(@data-tooltip, 'Send')]")]
 		private IWebElement SendButton;
+
+		[FindsBy(How = How.XPath, Using = ".//*[@role='alert']//div[@class = 'vh']")]
+		protected IWebElement MessageHasBeenSentMessage;
 
 		public ComposeEmailDialogPage FillEmailFields(string emailTo, string subject, string body)
 		{
@@ -75,6 +78,21 @@ namespace TestWebProject.forms
 		{
 			SendButton.Click();
 			return this;
+		}
+
+		public BasePage SendEmailUsingKeys()
+		{
+			new Actions(Browser.GetDriver()).SendKeys(Keys.LeftControl + Keys.Enter).Build().Perform();
+
+			isMailSentMessageAppear();
+
+			return this;
+		}
+
+		private void isMailSentMessageAppear()
+		{
+			new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(3)).Until(
+				ExpectedConditions.TextToBePresentInElement(MessageHasBeenSentMessage, "Your message has been sent. View message"));
 		}
 
 		public BasePage CloseComposeDialogWindow()

@@ -8,21 +8,23 @@ using Microsoft.VisualStudio.TestTools.UnitTesting;
 using OpenQA.Selenium;
 using TestWebProject.webdriver;
 using OpenQA.Selenium.Support.PageObjects;
+using OpenQA.Selenium.Support.UI;
+using TestWebProject.Enums;
 
 namespace TestWebProject.forms
 {
 	public class DraftsPage : BasePage
 	{
-		private static readonly By _draftTable = By.XPath(".//*[@class='aeF']");
+		private static readonly By _draftTable = By.XPath(".//*[@class='aeF']//*[@role = 'main']");
 
 		public DraftsPage() : base(_draftTable)
 		{
-			PageFactory.InitElements(Browser.GetDriver(), this);	
+			PageFactory.InitElements(Browser.GetDriver(), this);
 		}
 
 		[FindsBy(How = How.XPath, Using = ".//*[@role='main']//tr[@jsmodel]")]
 		private IList<IWebElement> DraftNotes;
-
+	
 		public ComposeEmailDialogPage OpenFirstDraft()
 		{
 			DraftNotes.First().Click();
@@ -31,7 +33,7 @@ namespace TestWebProject.forms
 		}
 
 		public DraftsPage GetNumberOfDrafts(out int currentNumberOfDrafts)
-		{
+		{			
 			currentNumberOfDrafts = DraftNotes.Count();
 			return this;
 		}

@@ -1,4 +1,7 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using System;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using OpenQA.Selenium;
+using OpenQA.Selenium.Remote;
 using TestWebProject.Enums;
 using TestWebProject.forms;
 using TestWebProject.Helpers;
@@ -9,18 +12,18 @@ namespace TestWebProject
 	[TestClass]
 	public class Test : BaseTest
 	{
-		private readonly string email = "mentoringqa2017@gmail.com";
-		private readonly string password = "mentoring2017";
-		private readonly string emailTo = Helper.GetRandomEmail(3);
-		private readonly string emailSubject = Helper.GetRandomString();
-		private readonly string emailBody = Helper.GetRandomString();
+		private readonly string _email = "mentoringqa2017@gmail.com";
+		private readonly string _password = "mentoring2017";
+		private readonly string _emailTo = "Hello@mail.ru";
+		private readonly string _emailSubject = Helper.GetRandomString();
+		private readonly string _emailBody = "HI";
 
 
 		[TestMethod, TestCategory("Smoke")]
 		public void TestLogin()
 		{
 			// Act
-			bool isLoginCorrect = new LoginForm().InputLogin(email, password)
+			bool isLoginCorrect = new LoginForm().InputLogin(_email, _password)
 				.inOnPage(Pages.Inbox);
 
 			// Assert
@@ -35,11 +38,11 @@ namespace TestWebProject
 
 			// Act
 			bool isEmailPresentInDrafts = new LoginForm()
-				.InputLogin(email, password)
+				.InputLogin(_email, _password)
 				.NavigateToDrafts()
 				.GetNumberOfDrafts(out numberOfDrafts)
 				.OpenComposeEmailDialog()
-				.FillEmailFields(emailTo, emailSubject, emailBody)
+				.FillEmailFields(_emailTo, _emailSubject, _emailBody)
 				.CloseComposeDialogWindow()
 				.NavigateToDrafts()
 				.CheckEmailPresentsInDraft(numberOfDrafts);
@@ -53,13 +56,13 @@ namespace TestWebProject
 		{
 			// Act
 			bool isEmailFillingCorrect = new LoginForm()
-				.InputLogin(email, password)
+				.InputLogin(_email, _password)
 				.OpenComposeEmailDialog()
-				.FillEmailFields(emailTo, emailSubject, emailBody)
+				.FillEmailFields(_emailTo, _emailSubject, _emailBody)
 				.CloseComposeDialogWindow()
 				.NavigateToDrafts()
 				.OpenFirstDraft()
-				.CheckEmailFilling(emailTo, emailSubject, emailBody);
+				.CheckEmailFilling(_emailTo, _emailSubject, _emailBody);
 
 			// Assert
 			Assert.IsTrue(isEmailFillingCorrect);
@@ -73,14 +76,14 @@ namespace TestWebProject
 
 			// Act
 			bool isEmailDisappearedFromDrafts = new LoginForm()
-				.InputLogin(email, password)
+				.InputLogin(_email, _password)
 				.OpenComposeEmailDialog()
-				.FillEmailFields(emailTo, emailSubject, emailBody)
+				.FillEmailFields(_emailTo, _emailSubject, _emailBody)
 				.CloseComposeDialogWindow()
 				.NavigateToDrafts()
 				.GetNumberOfDrafts(out numberOfDrafts)
 				.OpenFirstDraft()
-				.SendEmail()
+				.SendEmailUsingKeys()
 				.NavigateToDrafts()
 				.CheckEmailDisappearedFromDrafts(numberOfDrafts);
 
@@ -96,11 +99,11 @@ namespace TestWebProject
 
 			// Act
 			bool emailAppearInSentEmails = new LoginForm()
-				.InputLogin(email, password)
+				.InputLogin(_email, _password)
 				.NavigateToSentMail()
 				.GetNumberOfSentEmails(out numberOfSentEmails)
 				.OpenComposeEmailDialog()
-				.FillEmailFields(emailTo, emailSubject, emailBody)
+				.FillEmailFields(_emailTo, _emailSubject, _emailBody)
 				.CloseComposeDialogWindow()
 				.NavigateToDrafts()
 				.OpenFirstDraft()
@@ -110,6 +113,28 @@ namespace TestWebProject
 
 			// Assert
 			Assert.IsTrue(emailAppearInSentEmails);
+		}
+
+		[TestMethod, TestCategory("Smoke")]
+		public void DeleteEmailUsingContextMenu()
+		{
+			// Arrange
+			int numberOfSentEmails;
+
+			// Act
+			bool isEmailDeleted = new LoginForm()
+				.InputLogin(_email, _password)
+				.OpenComposeEmailDialog()
+				.FillEmailFields(_emailTo, _emailSubject, _emailBody)
+				.SendEmailUsingKeys()
+				.NavigateToSentMail()
+				.GetNumberOfSentEmails(out numberOfSentEmails)
+				.DeleteSentEmailFromListByContextMenu()
+				.AcceptDeleteSentEmailDialog()
+				.CheckEmailDissapearAfterDeleting(numberOfSentEmails);
+
+			// Assert
+			Assert.IsTrue(isEmailDeleted);
 		}
 	}
 }

@@ -28,6 +28,10 @@ namespace TestWebProject.webdriver
 				case Pages.Inbox:
 					 isOnPage = Browser.GetDriver().Url.Contains("#inbox");
 					 break;
+				case Pages.Drafts:
+					 isOnPage = Browser.GetDriver().Url.Contains("#drafts");
+					 break;
+
 			}
 
 			return isOnPage;
