@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using OpenQA.Selenium;
 using TestWebProject.webdriver;
+using TestWebProject.Entities;
+using TestWebProject.Webdriver;
 
 namespace TestWebProject.forms
 {
@@ -20,16 +22,16 @@ namespace TestWebProject.forms
 		private readonly BaseElement Login = new BaseElement(_loginInput);
 		private readonly BaseElement NextButton = new BaseElement(By.Id("identifierNext"));
 		private readonly BaseElement Password = new BaseElement(By.Name("password"));
-		private readonly BaseElement PasswordNestButton = new BaseElement(By.Id("passwordNext"));
+		private readonly Button PasswordNext = new Button(By.Id("passwordNext"));
 
 
-		public InboxPage InputLogin(string login, string password)
+		public InboxPage InputLogin(User user)
 		{
 			Login.Clear();
-			Login.SendKeys(login);
+			Login.SendKeys(user.email); 
 			NextButton.Click();
-			Password.SendKeys(password);
-			PasswordNestButton.Click();
+			Password.SendKeys(user.password);
+			PasswordNext.Click();
 
 			return new InboxPage();
 		}

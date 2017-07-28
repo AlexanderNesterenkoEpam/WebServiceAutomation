@@ -4,6 +4,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using TestWebProject.webdriver;
+using TestWebProject.WebdriverConfiguration;
 
 namespace TestWebProject.forms
 {
@@ -29,7 +30,9 @@ namespace TestWebProject.forms
 		public DraftsPage NavigateToDrafts()
 		{
 			DraftsLink.Click();
-			Thread.Sleep(3000);
+
+			Thread.Sleep(5000);
+
 			return new DraftsPage();
 		}
 
@@ -43,6 +46,8 @@ namespace TestWebProject.forms
 		public SentMailPage NavigateToSentMail()
 		{
 			SentMailLink.Click();
+
+			Thread.Sleep(5000);
 
 			return new SentMailPage();
 		}

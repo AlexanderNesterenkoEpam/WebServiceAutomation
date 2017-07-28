@@ -10,6 +10,9 @@ using TestWebProject.webdriver;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using TestWebProject.Enums;
+using TestWebProject.Elements;
+using TestWebProject.Webdriver;
+using TestWebProject.WebdriverConfiguration;
 
 namespace TestWebProject.forms
 {
@@ -24,17 +27,58 @@ namespace TestWebProject.forms
 
 		[FindsBy(How = How.XPath, Using = ".//*[@role='main']//tr[@jsmodel]")]
 		private IList<IWebElement> DraftNotes;
-	
+
+		Checkbox SelectAllCheckbox = new Checkbox(By.XPath(".//*[@gh='mtb']//*[@role = 'presentation']"));
+
+		Button DiscardDraftsButton = new Button(By.XPath(".//*[@gh='mtb']//div[@act='16']"));
+
 		public ComposeEmailDialogPage OpenFirstDraft()
 		{
+			WaitForDraftsListVisible();
+
 			DraftNotes.First().Click();
 
 			return new ComposeEmailDialogPage();
 		}
 
+		public void WaitForDraftsDissapeared()
+		{
+			var wait = new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(5));
+
+			wait.Until ((d) =>
+			{
+				return DraftNotes.Count.Equals(0);
+			});
+		}
+
+		public void WaitForDraftsListVisible()
+		{
+			new WebDriverWait(Browser.GetDriver(), TimeSpan.FromSeconds(5)).Until(
+			ExpectedConditions.ElementIsVisible(By.XPath(".//*[@role='main']//tr[@jsmodel]//*[@role = 'link']")));
+		}
+
 		public DraftsPage GetNumberOfDrafts(out int currentNumberOfDrafts)
 		{			
 			currentNumberOfDrafts = DraftNotes.Count();
+			return this;
+		}
+
+		public DraftsPage DiscardAllDrafts()
+		{
+			
+			WaitForDraftsListVisible();
+
+			if (!DraftNotes.Count.Equals(0))
+			{
+				SelectAllCheckbox.Click();
+				DiscardDraftsButton.Click();
+				WaitForDraftsDissapeared();
+			}
+			else
+			{
+				Console.WriteLine("There is no drafts to discard.");
+			}
+
 			return this;
 		}
 

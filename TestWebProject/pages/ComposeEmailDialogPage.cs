@@ -4,6 +4,8 @@ using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.PageObjects;
 using OpenQA.Selenium.Support.UI;
 using TestWebProject.webdriver;
+using TestWebProject.Entities;
+using TestWebProject.WebdriverConfiguration;
 
 namespace TestWebProject.forms
 {
@@ -37,35 +39,35 @@ namespace TestWebProject.forms
 		[FindsBy(How = How.XPath, Using = ".//*[@role='alert']//div[@class = 'vh']")]
 		protected IWebElement MessageHasBeenSentMessage;
 
-		public ComposeEmailDialogPage FillEmailFields(string emailTo, string subject, string body)
+		public ComposeEmailDialogPage FillEmailFields(Email email)
 		{
 			RecepientsInput.Clear();
-			RecepientsInput.SendKeys(emailTo);
+			RecepientsInput.SendKeys(email.emailTo);
 			SubjectInput.Clear();
-			SubjectInput.SendKeys(subject);
+			SubjectInput.SendKeys(email.emailSubject);
 			BodyInput.Clear();
-			BodyInput.SendKeys(body);
+			BodyInput.SendKeys(email.emailBody);
 
 			return this;
 		}
 
-		public bool CheckEmailFilling(string emailTo, string emailSubject, string emailBody)
+		public bool CheckEmailFilling(Email email)
 		{
 			bool isEmailFillingCorrect = true;
 
-			if (!RecepientsInput.GetAttribute("Value").Equals(emailTo))
+			if (!RecepientsInput.GetAttribute("Value").Equals(email.emailTo))
 			{
 				Console.WriteLine("Email adress is not as expected.");
 				isEmailFillingCorrect = false;
 			}
 
-			if (!HiddenSubjectInput.GetAttribute("value").Equals(emailSubject))
+			if (!HiddenSubjectInput.GetAttribute("value").Equals(email.emailSubject))
 			{
 				Console.WriteLine("Email subject is not as expected.");
 				isEmailFillingCorrect = false;
 			}
 
-			if (!BodyInput.Text.Equals(emailBody))
+			if (!BodyInput.Text.Equals(email.emailBody))
 			{
 				Console.WriteLine("Email body is not as expected.");
 				isEmailFillingCorrect = false;

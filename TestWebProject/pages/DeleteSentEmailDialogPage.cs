@@ -7,6 +7,7 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Support.PageObjects;
 using TestWebProject.forms;
 using TestWebProject.webdriver;
+using TestWebProject.WebdriverConfiguration;
 
 namespace TestWebProject.pages
 {
@@ -22,9 +23,6 @@ namespace TestWebProject.pages
 		[FindsBy(How = How.XPath, Using = "	//*[@name='ok']")]
 		private IWebElement Ok;
 	
-
-	
-
 		public SentMailPage AcceptDeleteSentEmailDialog()
 		{
 			 Ok.Click();

@@ -1,5 +1,6 @@
 ﻿using OpenQA.Selenium;
 using TestWebProject.Enums;
+using TestWebProject.WebdriverConfiguration;
 
 namespace TestWebProject.webdriver
 {
