@@ -1,13 +1,8 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using OpenQA.Selenium;
-using OpenQA.Selenium.Remote;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using TestWebProject.Enums;
 using TestWebProject.forms;
-using TestWebProject.Helpers;
 using TestWebProject.webdriver;
 using TestWebProject.Entities;
-using TestWebProject.Utils;
 
 namespace TestWebProject
 {
@@ -42,8 +37,8 @@ namespace TestWebProject
 			var user = GetUserFromTestContext();
  
 			// Act
-			bool isLoginCorrect = new LoginForm().InputLogin(user)
-				.inOnPage(Pages.Inbox);
+			bool isLoginCorrect = new LoginPage().LogIn(user)
+				.IsOnPage(Pages.Inbox);
 
 			// Assert
 			Assert.IsTrue(isLoginCorrect);
@@ -61,8 +56,8 @@ namespace TestWebProject
 
 
 			// Act
-			bool isEmailPresentInDrafts = new LoginForm()
-				.InputLogin(user)
+			bool isEmailPresentInDrafts = new LoginPage()
+				.LogIn(user)
 				.NavigateToDrafts()
 				.GetNumberOfDrafts(out numberOfDrafts)
 				.OpenComposeEmailDialog()
@@ -87,8 +82,8 @@ namespace TestWebProject
 			var email = GetEmailFromTestContext();
 
 			// Act
-			bool isEmailFillingCorrect = new LoginForm()
-				.InputLogin(user)
+			bool isEmailFillingCorrect = new LoginPage()
+				.LogIn(user)
 				.OpenComposeEmailDialog()
 				.FillEmailFields(email)
 				.CloseComposeDialogWindow()
@@ -113,8 +108,8 @@ namespace TestWebProject
 			var email = GetEmailFromTestContext();
 
 			// Act
-			bool isEmailDisappearedFromDrafts = new LoginForm()
-				.InputLogin(user)
+			bool isEmailDisappearedFromDrafts = new LoginPage()
+				.LogIn(user)
 				.OpenComposeEmailDialog()
 				.FillEmailFields(email)
 				.CloseComposeDialogWindow()
@@ -140,8 +135,8 @@ namespace TestWebProject
 			var email = GetEmailFromTestContext();
 
 			// Act
-			bool emailAppearInSentEmails = new LoginForm()
-				.InputLogin(user)
+			bool emailAppearInSentEmails = new LoginPage()
+				.LogIn(user)
 				.NavigateToSentMail()
 				.GetNumberOfSentEmails(out numberOfSentEmails)
 				.OpenComposeEmailDialog()
@@ -168,8 +163,8 @@ namespace TestWebProject
 			var email = GetEmailFromTestContext();
 
 			// Act
-			bool isEmailDeleted = new LoginForm()
-				.InputLogin(user)
+			bool isEmailDeleted = new LoginPage()
+				.LogIn(user)
 				.OpenComposeEmailDialog()
 				.FillEmailFields(email)
 				.SendEmailUsingKeys()

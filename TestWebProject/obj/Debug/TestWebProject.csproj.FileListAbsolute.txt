@@ -9,3 +9,33 @@ c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebP
 c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.Support.dll
 c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\WebDriver.Support.xml
 c:\users\uladzimir_nilau@epam.com\documents\visual studio 2015\Projects\TestWebProject\TestWebProject\bin\Debug\TestWebProject.dll.config
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.csproj.CoreCompileInputs.cache
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\Resources\TestData.csv
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.dll.config
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.pdb
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\TechTalk.SpecFlow.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.Support.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.xml
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.Support.xml
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.dll
+C:\Users\Александр\Desktop\BDD mentoring\Копия чтобы не сломать\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.pdb
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.csproj.CoreCompileInputs.cache
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\Resources\TestData.csv
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.dll.config
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\TestWebProject.pdb
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\Newtonsoft.Json.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\TechTalk.SpecFlow.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.Support.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\Newtonsoft.Json.xml
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.xml
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\bin\Debug\WebDriver.Support.xml
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.dll
+D:\Mentoring\BDD REPORT AND CODE\USING BDD\USING BDD\TestWebProject - Copy\TestWebProject\obj\Debug\TestWebProject.pdb

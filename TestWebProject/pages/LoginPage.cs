@@ -10,11 +10,11 @@ using TestWebProject.Webdriver;
 
 namespace TestWebProject.forms
 {
-	public class LoginForm : AbstractPage
+	public class LoginPage : AbstractPage
 	{
 		private static readonly By _loginInput = By.Id("identifierId");
 
-		public LoginForm() : base(_loginInput)
+		public LoginPage() : base(_loginInput)
 		{
 
 		}
@@ -25,7 +25,7 @@ namespace TestWebProject.forms
 		private readonly Button PasswordNext = new Button(By.Id("passwordNext"));
 
 
-		public InboxPage InputLogin(User user)
+		public InboxPage LogIn(User user)
 		{
 			Login.Clear();
 			Login.SendKeys(user.email); 
@@ -33,6 +33,34 @@ namespace TestWebProject.forms
 			Password.SendKeys(user.password);
 			PasswordNext.Click();
 
+			return new InboxPage();
+		}
+
+		public InboxPage InputLogin(User user)
+		{
+			Login.Clear();
+			Login.SendKeys(user.email);
+
+			return new InboxPage();
+		}
+
+		public InboxPage ClickNext()
+		{
+			NextButton.Click();
+			return new InboxPage();
+		}
+
+		public InboxPage InputPassword(User user)
+		{
+			Login.Clear();
+			Login.SendKeys(user.password);
+
+			return new InboxPage();
+		}
+
+		public InboxPage ClickPasswordNext()
+		{
+			PasswordNext.Click();
 			return new InboxPage();
 		}
 	}

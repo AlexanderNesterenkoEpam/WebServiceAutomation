@@ -20,7 +20,7 @@ namespace TestWebProject.webdriver
 			label.WaitForIsVisible();
 		}
 
-		public bool inOnPage(Pages page)
+		public bool IsOnPage(Pages page)
 		{
 			bool isOnPage = false;
 
