@@ -86,6 +86,13 @@
     <Compile Include="Elements\Button.cs" />
     <Compile Include="DriverConfiguration\Configuration.cs" />
     <Compile Include="UserAuthenticationSteps.cs" />
+    <Compile Include="Utilities\Configuration.cs" />
+    <Compile Include="Utilities\HttpRequesUtil.cs" />
+    <Compile Include="Utilities\HttpResponseUtil.cs" />
+    <Compile Include="WebServiceTestScenarios\BaseWebServiceTest.cs" />
+    <Compile Include="WebServiceTestScenarios\ContentTypeTest.cs" />
+    <Compile Include="WebServiceTestScenarios\ResponseBodyTest.cs" />
+    <Compile Include="WebServiceTestScenarios\StatusCodeTest.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config">
